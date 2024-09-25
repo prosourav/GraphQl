@@ -1,0 +1,1 @@
+export const MONGO_URI = 'mongodb+srv://:Test@123@firstgqldb.xmo7u.mongodb.net/?retryWrites=true&w=majority&appName=FirstGQLdb'
