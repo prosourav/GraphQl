@@ -22,13 +22,17 @@ const typeDefs = gql`
     by: ID
   }
 
-  type Mutation{
-  signUpUser(
-    firstName: String!,
-    lastName: String!,
-    email: String!,
-    password:String! ):User
+ type Mutation {
+    signupUserDummy(userNew: UserInput!): User
   }
+
+  input UserInput {
+    firstName: String!
+    lastName: String!
+    email: String!
+    password: String!
+  }
+
 `;
 
 export default typeDefs;

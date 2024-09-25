@@ -1,3 +1,4 @@
+import { log } from 'console';
 import { quotes, users } from './fakedb.js';
 import { randomBytes } from "crypto";
 
@@ -12,14 +13,17 @@ const resolvers = {
   User: {
     quotes: (ur) => quotes.filter((quote) => ur.id === quote.by) // Changed 'user' to 'quote'
   },
-  Mutation: { // Added Mutation for signUpUser
-    signUpUser: (_, { firstName, lastName, email, password }) => {
+  Mutation: {
+    signupUserDummy: (_, { userNew }) => {
       const id = randomBytes(5).toString("hex");
-      const newUser = { id, firstName, lastName, email, password };
-      users.push(newUser);
-      return newUser; // Return the newly created user
-    },
-  },
+      users.push({
+        id,
+        ...userNew
+      })
+      return users.find(user => user.id == id)
+    }
+  }
+
 };
 
 export default resolvers;

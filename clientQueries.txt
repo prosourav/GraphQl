@@ -38,3 +38,14 @@ query getqQoteByUserId{
     by
   }
 }
+
+
+mutation createUser($userNew: UserInput!){
+  signupUserDummy(userNew: $userNew) {
+    id
+    email
+    firstName
+    lastName
+    password
+  }
+}
